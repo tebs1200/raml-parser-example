@@ -48,6 +48,12 @@ function validateAgainstType(typeString, testObject) {
     console.log('');
 }
 
+/* *** Examples *** */
+
+// Try and validate a valid Foo
+validateAgainstType('Foo', {
+    label: 'test'
+});
 
 // Try and validate an empty Foo
 validateAgainstType('Foo', {});
