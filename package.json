@@ -1,0 +1,15 @@
+{
+  "name": "raml-parser-example",
+  "version": "0.0.1",
+  "description": "example parsing a raml spec",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Aaren Tebbutt",
+  "license": "MIT",
+  "dependencies": {
+    "raml-1-parser": "0.1.0-beta.6"
+  }
+}
