@@ -18,3 +18,7 @@ types:
   Baz:
     type: Foo | Bar
     discriminator: true
+
+  IdString:
+    type: string
+    pattern: ([a-z]|[A-Z]|[0-9]){8}

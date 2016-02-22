@@ -48,7 +48,7 @@ function validateAgainstType(typeString, testObject) {
     console.log('');
 }
 
-/* *** Examples *** */
+/* *** Union Examples *** */
 
 // Try and validate a valid Foo
 validateAgainstType('Foo', {
@@ -65,3 +65,11 @@ validateAgainstType('Bar', {});
 
 // Try and validate an empty Baz
 validateAgainstType('Baz', {});
+
+
+/* *** String Examples *** */
+
+// Try and validate an invalid Id String
+validateAgainstType('IdString', 'wrong');
+
+validateAgainstType('IdString', { test: 'rubbish'});
