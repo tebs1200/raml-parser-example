@@ -21,6 +21,7 @@ try {
         }
     });
 }
+console.log('');
 
 // Create an object that maps the API spec types to properties for easier lookup and validation
 var specTypes = {};
@@ -28,41 +29,33 @@ apiSpec.types().forEach(function(type) {
     specTypes[type.name()] = type;
 });
 
+// Helper function to execute validations against types
+function validateAgainstType(typeString, testObject) {
+
+    console.log('Attempting to validate ' + JSON.stringify(testObject) + ' against ' + typeString + '...');
+
+    var validationErrors =  specTypes[typeString].validateInstance(testObject);
+
+    if (validationErrors.length > 0) {
+        console.log('Invalid ' + typeString);
+        validationErrors.forEach(function (error) {
+            console.log(' * ' + error);
+        });
+    } else {
+        console.log('Valid ' + typeString);
+    }
+
+    console.log('');
+}
+
 
 // Try and validate an empty Foo
-var fooValidationErrors =  specTypes.Foo.validateInstance({});
-
-if (fooValidationErrors.length > 0) {
-    console.log('Invalid Foo');
-    fooValidationErrors.forEach(function (error) {
-        console.log(' * ' + error);
-    });
-} else {
-    console.log('Valid Foo');
-}
+validateAgainstType('Foo', {});
 
 
 // Try and validate an empty Bar
-var barValidationErrors =  specTypes.Bar.validateInstance({});
-
-if (barValidationErrors.length > 0) {
-    console.log('Invalid Bar');
-    fooValidationErrors.forEach(function (error) {
-        console.log(' * ' + error);
-    });
-} else {
-    console.log('Valid Bar');
-}
+validateAgainstType('Bar', {});
 
 
 // Try and validate an empty Baz
-var bazValidationErrors =  specTypes.Baz.validateInstance({});
-
-if (bazValidationErrors.length > 0) {
-    console.log('Invalid Baz');
-    fooValidationErrors.forEach(function (error) {
-        console.log(' * ' + error);
-    });
-} else {
-    console.log('Valid Baz');
-}
+validateAgainstType('Baz', {});
